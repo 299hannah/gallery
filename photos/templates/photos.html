@@ -13,9 +13,9 @@
             <a  href="{%url 'index'%}" class="btn btn-primary my-3 "> Go Back</a>
 
             <div style="height: 90vh">
-                <img style="max-width: 100%; max-height: 100%;" src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dHJhdmVsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}" alt="">
             
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum voluptatibus unde necessitatibus doloribus similique earum enim, deserunt quidem consectetur ipsam architecto, nam dolore adipisci esse. Voluptatum totam id aperiam molestias.</p>
+                <p>{{photo.description}}</p>
             </div>
 
         </div>
