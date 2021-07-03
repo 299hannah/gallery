@@ -4,8 +4,39 @@
 
 {{ block.super}}
 
-<div class="container">
-    <p>my photos home page</p>
+<div class="container m-5">
+
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">All</li>
+
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+              </div>
+
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="card">
+                    <img class="image1" src="
+                    https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dHJhdmVsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
 </div>
 
 {%endblock%}
