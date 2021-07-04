@@ -10,9 +10,8 @@ class Category(models.Model):
     def save_category(self):
         self.save()
 
-    def delete_category(self):
-        self.delete()
-
+   
+   
 
     class Meta:
         ordering = ['name']
