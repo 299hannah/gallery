@@ -26,15 +26,10 @@
                         <p>{{photo.description}}</p>
                         <p>Location: {{photo.location}}</p>
                        
-                        <a href="photo.image.url" class="btn bg-info btn-sm m-1"> Copy link</a>
+                        <a href="{%url 'photo' photo.id%}" class="btn btn-info btn-sm m-1"> Copy link</a>
+                        
+                        <!-- <input class="form-control" type="text" value="http://127.0.0.1:8000{{photo.image.url}}/{{photo.id}}"> -->
 
-                        <!-- <div class="col-md-10">
-                            <a onclick="copyLink({{photo.id}})"><button type="button" class="btn btn-info btn-sm">Copy Link</button></a>
-                                <input class="form-control" type="text" value="http://127.0.0.1:8000{{photo.image.url}}" id="{{photo.id}}">
-                            <a ></a>
-                        </div> -->
-
-                    </div>
                   </div>
                 </div>
             </div>
