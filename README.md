@@ -2,7 +2,7 @@
 
 
 **Description**: 
- My gallery website made with django where one can view my photos in the categories included and search them using the location.
+ My gallery website made with django, python3 and bootstrap where one can view my photos in the categories included and search them using the location.
  
 
 ### MIT License
