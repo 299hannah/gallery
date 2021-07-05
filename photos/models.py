@@ -10,8 +10,8 @@ class Category(models.Model):
     def save_category(self):
         self.save()
 
-   
-   
+    def delete_category(self):
+        self.delete()
 
     class Meta:
         ordering = ['name']
@@ -26,6 +26,14 @@ class Photo(models.Model):
 
     def __str__(self):
         return self.description
+
+    
+    def save_photo(self):
+        self.save()
+
+    def delete_photo(self):
+        self.delete()
+   
 
     @classmethod
     def search_by_location(cls,search_term):
