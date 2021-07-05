@@ -11,10 +11,15 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-# import django_heroku
+import django_heroku
+import dj_database_url
+
+from decouple import config,Csv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,6 +31,9 @@ SECRET_KEY = 'django-insecure-&30g&l-+00j_@7fmbq=l!&xpsqt$&d+s6ipfn_6#i4mes#)m8v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+
+
 
 ALLOWED_HOSTS = []
 
@@ -51,6 +59,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
+
 ]
 
 ROOT_URLCONF = 'mygallery.urls'
@@ -76,8 +87,10 @@ WSGI_APPLICATION = 'mygallery.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
+db_from_env = dj_database_url.config(conn_max_age=500)
+if config('Mode')=="dev":
+    #local db
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'photos',
@@ -85,6 +98,16 @@ DATABASES = {
         'PASSWORD':'Access',
     }
 }
+else:   
+     #prod db
+     DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+          )
+  }
+
+
+
 
 
 # Password validation
@@ -119,6 +142,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR /"static"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -128,8 +158,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-# STATIC_ROOT = BASE_DIR /"static"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -138,4 +166,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
