@@ -3,6 +3,21 @@
 
 **Description**: 
  My gallery website made with django, python3 and bootstrap where one can view my photos in the categories included and search them using the location.
+
+
+## Project Set up Instructions
+* Ctrl + alt + t to open the terminal
+* now git clone 
+* cd to Gallery
+* you can use code . or atom . to open it.
+
+## Technologies Used
+* Python-Django - Used django as a framework.
+* HTML5- To display the content
+* CSS- Cascading styles for styling the html
+* Heroku- To host the application
+* Github- To host the source code and the live link
+
  
 
 ### MIT License
