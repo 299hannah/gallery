@@ -40,4 +40,6 @@ class Photo(models.Model):
         photos = cls.objects.filter(location__icontains=search_term)
         return photos
     
+class Location(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False)
 
