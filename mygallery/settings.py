@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-MODE=config("MODE", default="dev")
+# MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 
 
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'mygallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 db_from_env = dj_database_url.config(conn_max_age=500)
-if config('Mode')=="dev":
+if config('MODE')=="dev":
     # local db
     DATABASES = {
     'default': {
